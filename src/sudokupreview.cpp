@@ -1,6 +1,9 @@
 #include "include/sudokupreview.h"
 #include <QDebug>
-SudokuPreview::SudokuPreview(QWidget *parent) : QWidget(parent), model(nullptr)
+
+SudokuPreview::SudokuPreview(QWidget *parent) : QWidget(parent), model(nullptr), colorMode(false), colors({QColor(255, 0, 0), QColor(0, 0, 153), QColor(255, 255, 0),
+                                                                                                          QColor(0, 128, 0), QColor(255, 165, 0), QColor(216, 216, 116),
+                                                                                                          QColor(0, 153, 255), QColor(255, 102, 128), QColor(0, 0, 0)})
 {
     setMinimumHeight(400);
     setMinimumWidth(400);
@@ -75,25 +78,37 @@ void SudokuPreview::paintEvent(QPaintEvent *event)
                 switch(sudokuCase.getState()){
 
                 case Case::ORIGINAL:
-                    if(sudokuCase.getValue() == selectedValue){
-                        painter.setPen(Qt::green);
+                    if(!colorMode){
+                        if(sudokuCase.getValue() == selectedValue){
+                            painter.setPen(Qt::green);
+                        }else{
+                            painter.setPen(Qt::black);
+                        }
                     }else{
-                        painter.setPen(Qt::black);
+                        painter.setPen(colors[sudokuCase.getValue()-1]);
                     }
                     painter.drawText(xFirstPosition + xTextPosition + j*smallSquare, yFirstPosition + i*smallSquare + yTextPosition, QString::number(sudokuCase.getValue()));
                     break;
 
                 case Case::POSSIBLE:
-                    if(sudokuCase.getValue() == selectedValue){
-                        painter.setPen(Qt::green);
+                    if(!colorMode){
+                        if(sudokuCase.getValue() == selectedValue){
+                            painter.setPen(Qt::green);
+                        }else{
+                            painter.setPen(Qt::blue);
+                        }
                     }else{
-                        painter.setPen(Qt::blue);
+                        painter.setPen(colors[sudokuCase.getValue()-1]);
                     }
                     painter.drawText(xFirstPosition + xTextPosition + j*smallSquare, yFirstPosition+i*smallSquare + yTextPosition, QString::number(sudokuCase.getValue()));
                     break;
 
                 case Case::ERROR:
-                    painter.setPen(Qt::red);
+                    if(!colorMode){
+                        painter.setPen(Qt::red);
+                    }else{
+                        painter.setPen(colors[sudokuCase.getValue()-1]);
+                    }
                     painter.drawText(xFirstPosition + xTextPosition + j*smallSquare, yFirstPosition+i*smallSquare + yTextPosition, QString::number(sudokuCase.getValue()));
                     break;
 
@@ -127,5 +142,11 @@ void SudokuPreview::setModel(SudokuModel * sudokuModel)
 {
     model = sudokuModel;
     connect(model, SIGNAL(notify()), this, SLOT(update()));
+    update();
+}
+
+void SudokuPreview::setColorMode(bool activated)
+{
+    colorMode = activated;
     update();
 }

@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionQuit, SIGNAL(triggered(bool)), this, SLOT(close()));
     connect(ui->actionAbout_SudokuLink, SIGNAL(triggered(bool)), this, SLOT(showAboutDialog()));
     connect(ui->actionAutomatic_help, SIGNAL(toggled(bool)), &model, SLOT(setHelp(bool)));
+    connect(ui->actionColor_Mode, SIGNAL(toggled(bool)), &preview, SLOT(setColorMode(bool)));
+
 }
 
 MainWindow::~MainWindow()

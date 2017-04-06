@@ -67,6 +67,7 @@
      <string>&amp;Edit</string>
     </property>
     <addaction name="actionAutomatic_help"/>
+    <addaction name="actionColor_Mode"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -189,6 +190,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionColor_Mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
    </property>
   </action>
  </widget>
