@@ -45,3 +45,5 @@ TRANSLATIONS += translation/sudoku_en.ts \
              translation/sudoku_fr.ts
 
 CONFIG += c++11
+
+RC_FILE = resources/app.rc
