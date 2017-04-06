@@ -15,8 +15,18 @@
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="65"/>
-        <source>&lt;b&gt;Version 1.0&lt;/b&gt;</source>
-        <translation></translation>
+        <source>with the participation of</source>
+        <translation>avec la participation de</translation>
+    </message>
+    <message>
+        <location filename="../ui/aboutdialog.ui" line="75"/>
+        <source>&lt;b&gt;Camille Kergroach&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/aboutdialog.ui" line="85"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version 1.0.1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
