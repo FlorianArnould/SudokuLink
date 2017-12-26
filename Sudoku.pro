@@ -38,8 +38,7 @@ FORMS    += ui/mainwindow.ui \
     	ui/onwindialog.ui \
     	ui/aboutdialog.ui
 
-RESOURCES += resources/grids.qrc\
-	  resources/icons.qrc
+RESOURCES += resources/grids.qrc
 
 TRANSLATIONS += translation/sudoku_en.ts \
              translation/sudoku_fr.ts

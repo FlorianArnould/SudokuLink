@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <QTimer>
+#include <QProcess>
 #include "include/onwindialog.h"
 #include "include/aboutdialog.h"
 
